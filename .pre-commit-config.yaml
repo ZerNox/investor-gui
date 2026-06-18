@@ -1,0 +1,29 @@
+# Pre-commit hooks for investor-gui.
+# Install once with:  uv run pre-commit install
+# Run on all files:   uv run pre-commit run --all-files
+repos:
+  # Secret scanning — blocks commits that would leak credentials/keys.
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.0
+    hooks:
+      - id: gitleaks
+
+  # General-purpose hygiene checks.
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: detect-private-key
+
+  # Python linting and formatting.
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.18
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
