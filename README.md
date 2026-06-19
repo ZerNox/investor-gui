@@ -1,30 +1,31 @@
 # investor-gui
 
-Investor GUI application.
+Static hosting for the **investor** web dashboard, served via GitHub Pages at:
 
-## Development
+> https://zernox.github.io/investor-gui/
 
-This project uses [uv](https://docs.astral.sh/uv/) for dependency management.
+## How this repo is maintained
+
+This repo is **auto-published** — do not edit the built files by hand. The
+dashboard source lives in the [`investor`](https://github.com/ZerNox/investor)
+repo under `web/`. A scheduled job there runs:
 
 ```bash
-# Install dependencies (incl. dev tools) into a virtualenv
-uv sync
-
-# Install the git pre-commit hooks (run once)
-uv run pre-commit install
-
-# Run all hooks against every file
-uv run pre-commit run --all-files
+investor-web-publish
 ```
 
-### Pre-commit hooks
+which exports the latest dashboard JSON, runs the Vite production build
+(base path `/investor-gui/`), mirrors the built `web/dist/` into this repo's
+root, and commits + pushes. The published commit replaces the previous site.
 
-Configured in [`.pre-commit-config.yaml`](.pre-commit-config.yaml):
+## Layout (generated)
 
-- **gitleaks** — scans staged changes and blocks any commit that would leak a
-  secret (API keys, tokens, private keys, …).
-- **detect-private-key** plus general hygiene checks (trailing whitespace,
-  end-of-file, YAML/TOML validation, large files, merge conflicts).
-- **ruff** — linting and formatting.
+- `index.html` — SPA entry point
+- `assets/` — hashed JS/CSS bundles
+- `data/` — exported dashboard JSON
+- `.nojekyll` — disables Jekyll so Vite's `_`-prefixed assets are served as-is
 
-The hooks run automatically on every `git commit` once installed.
+## Pages configuration
+
+- **Source**: deploy from a branch — `main`, root (`/`).
+- Jekyll is disabled via `.nojekyll`.

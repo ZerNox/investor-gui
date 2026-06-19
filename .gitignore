@@ -1,31 +1,5 @@
-# Python
-__pycache__/
-*.py[cod]
-*.egg-info/
-.eggs/
-build/
-dist/
-
-# Virtual environments
-.venv/
-venv/
-
-# uv
-# (uv.lock IS committed; the cache is not)
-
-# Environment / secrets
-.env
-.env.*
-!.env.example
-*.pem
-*.key
-
-# Tooling caches
-.ruff_cache/
-.pytest_cache/
-.mypy_cache/
-
-# Editor / OS
-.idea/
-.vscode/
+# Static hosting repo — the built site (index.html, assets/, data/) IS committed.
+# Only local cruft is ignored.
 .DS_Store
+node_modules/
+*.log
