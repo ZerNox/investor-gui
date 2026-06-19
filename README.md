@@ -29,3 +29,16 @@ root, and commits + pushes. The published commit replaces the previous site.
 
 - **Source**: deploy from a branch — `main`, root (`/`).
 - Jekyll is disabled via `.nojekyll`.
+
+## Secret scanning
+
+A minimal [pre-commit](.pre-commit-config.yaml) config runs **gitleaks** (plus
+`detect-private-key`) to block commits that would leak credentials. Enable it once:
+
+```bash
+pre-commit install
+```
+
+Formatting/large-file hooks are intentionally omitted — they would mangle the
+minified Vite build. The automated publish job commits with `--no-verify`, so it
+relies on the source `investor` repo never exporting secrets into the dashboard JSON.

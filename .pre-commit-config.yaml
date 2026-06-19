@@ -1,0 +1,19 @@
+# Pre-commit hooks for investor-gui (static hosting repo).
+# Install once with:  pre-commit install
+# Run on all files:   pre-commit run --all-files
+#
+# Intentionally minimal: only secret-scanning. The published site is a
+# minified Vite build, so formatting/whitespace/large-file hooks are omitted
+# (they would mangle the artifacts). The publish job commits with --no-verify.
+repos:
+  # Secret scanning — blocks commits that would leak credentials/keys.
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.0
+    hooks:
+      - id: gitleaks
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: detect-private-key
+      - id: check-merge-conflict
