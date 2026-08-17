@@ -1,1 +1,1 @@
-[]
+[{"id":"isolate-all-scheduled-jobs","title":"Isolate all scheduled jobs","targets":["T5","T9"],"priority":"high","priority_rank":4,"motivation":"Moves T9 (autonomous operation) toward reliable unattended execution","summary":"Moves T9 (autonomous operation) toward reliable unattended execution. Expected direction: shared-checkout-caused service failures fall from eight observed on 2026-08-17 to zero, the mirror poller is no longer a prerequisite for job executio"}]
