@@ -1,1 +1,1 @@
-[]
+[{"ticker":"SUS.ST","name":"Surgical Science Sweden","action":"BUY","composite_score":658.0,"conviction":"MEDIUM","entry_price":56.45,"target":73.16,"stop":39.74,"suggested_weight":0.01,"sizing_basis":"conviction_neutral_band_unmeasured","catalyst_date":null,"ts":"2026-11-15T03:19:06.725681+00:00","concerns":[],"concern_tier":null,"pre_gate_action":null,"gate_reason":null,"bias_flags":{"framework_mismatch":false,"value_growth_asymmetry":false,"heuristic_dissent_only":false,"thin_fundamentals":false,"sector_unmapped":false}}]
